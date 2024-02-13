@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>JDBC</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <!--  Dependency versions  -->
+        <selenium.version>4.17.0</selenium.version>
+        <lombok.version>1.18.30</lombok.version>
+        <cucumber.java.version>7.15.0</cucumber.java.version>
+        <cucumber.junit.version>7.14.1</cucumber.junit.version>
+        <cucumber.reporting.version>5.7.7</cucumber.reporting.version>
+        <log4j.version>2.17.1</log4j.version>
+        <log4j-slf4j.version>2.17.0</log4j-slf4j.version>
+        <apache.poi.version>5.2.3</apache.poi.version>
+        <assertJ.version>3.24.2</assertJ.version>
+        <extentreports.version>1.14.0</extentreports.version>
+        <cucumber.reporting.version>5.7.8</cucumber.reporting.version>
+
+        <!--  Plugin Versions   -->
+        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <maven.cucumber.reporting.plugin.version>5.7.5</maven.cucumber.reporting.plugin.version>
+
+        <!--  Runners  -->
+        <INCLUDE_PATTERN>**/CukesRunner.java</INCLUDE_PATTERN>
+        <browser>chrome</browser>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <!--  Selenium WebDriver  -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.0-801.jdbc4</version>
+        </dependency>
+        <!--  Cucumber-JVM dependencies  -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.junit.version}</version>
+        </dependency>
+        <!--  Apache POI to  Java libraries for reading and writing files in Microsoft Office formats  -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+        <!--  Lombok to automate the generation of Java Beans getters and setters by using annotations  -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/log4j/log4j  -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j-slf4j.version}</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/com.aventstack/extentreports  -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.assertj/assertj-core  -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertJ.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter  -->
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting  -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>${cucumber.reporting.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>
