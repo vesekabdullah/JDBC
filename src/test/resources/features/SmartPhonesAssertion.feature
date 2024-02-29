@@ -1,7 +1,7 @@
 Feature: SmartPhone pages assertions
 
 Feature: SmartPhone pages assertions
-  @3
+  @smartPhonePrice
   Scenario: User checks the total price for smartPhones page
     Given user lands on Inar Academy home page
     When user clicks on Target Market button
@@ -16,7 +16,7 @@ Feature: SmartPhone pages assertions
     Then user close window
 
 
-  @4
+  @smartPhoneDiscount
   Scenario: User checks the total discount in smartPhones page
     Given user lands on Inar Academy home page
     When user clicks on Target Market button

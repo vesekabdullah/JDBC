@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/targetMarket/step_definitions",
-        tags = "@4",
+        tags = "@laptopPrice",
         dryRun = false
 
 )
@@ -23,6 +23,11 @@ public class CukesRunner {
 }
 
 
+// laptopPrice
 
+//laptopDiscount
 
+//smartPhonePrice
+
+//smartPhoneDiscount
 

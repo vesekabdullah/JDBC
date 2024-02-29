@@ -28,8 +28,8 @@
         <!--  Runners  -->
         <INCLUDE_PATTERN>**/CukesRunner.java</INCLUDE_PATTERN>
         <browser>chrome</browser>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
@@ -121,5 +121,75 @@
 
     </dependencies>
 
+<build>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+            <release>17</release>
+        </configuration>
+    </plugin>
 
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.3</version>
+        <configuration>
+            <systemPropertyVariables>
+                <extent.reporter.spark.start>true</extent.reporter.spark.start>
+                <extent.reporter.spark.out>test-output/reports/test-automation-report.html
+                </extent.reporter.spark.out>
+            </systemPropertyVariables>
+            <!-- Run only test files that match the pattern **/CukesRunner.java -->
+            <includes>
+                <!--suppress UnresolvedMavenProperty -->
+                <include>${INCLUDE_PATTERN}</include>
+                <!--include>**/Cukes1Runner.java</include-->
+                <!--include>**/Cukes2Runner.java</include-->
+            </includes>
+
+            <!-- Continue running tests even if some of them fail -->
+            <testFailureIgnore>true</testFailureIgnore>
+
+            <!-- Order the tests by method name in alphabetical order -->
+            <runOrder>alphabetical</runOrder>
+
+            <!-- Run each test method in a separate thread -->
+            <parallel>methods</parallel>
+
+            <!-- Use 3 threads for parallel execution -->
+            <threadCount>3</threadCount>
+
+            <!-- Use a fixed number of threads, regardless of CPU cores -->
+            <perCoreThreadCount>true</perCoreThreadCount>
+
+        </configuration>
+    </plugin>
+
+    <plugin>
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
+        <version>${maven.cucumber.reporting.plugin.version}</version>
+        <executions>
+            <execution>
+                <id>execution</id>
+                <phase>verify</phase>
+                <goals>
+                    <goal>generate</goal>
+                </goals>
+                <configuration>
+                    <projectName>Cucumber HTML Reports</projectName>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
+                    <inputDirectory>${project.build.directory}</inputDirectory>
+                    <jsonFiles>
+                        <param>**/cucumber*.json</param>
+                    </jsonFiles>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    </plugins>
+</build>
 </project>

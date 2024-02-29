@@ -1,5 +1,5 @@
 Feature: Laptop pages assertions
-   @1
+   @laptopPrice
   Scenario: User checks the total price for laptops page
     Given user lands on Inar Academy home page
     When user clicks on Target Market button
@@ -15,7 +15,7 @@ Feature: Laptop pages assertions
 
 
 
-   @2
+   @laptopDiscount
   Scenario: User checks the total discount in laptops page
     Given user lands on Inar Academy home page
     When user clicks on Target Market button
